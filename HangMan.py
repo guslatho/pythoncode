@@ -10,7 +10,7 @@ wordChoice = WORDLIST[random.randint(0,(listLength-1))]
 wordLength = len(wordChoice)
 
 #Guess counters
-guessedCorrect = False
+gameIsDone = False
 guessAmount = 0
 guess = ''
 guessedLetters = ['']
@@ -21,7 +21,7 @@ print('Welcome to Hangman!')
 print()
 
 #Game loop
-while guessedCorrect == False:
+while gameIsDone == False:
     displayLijst = list(range(0,wordLength))
     for x in range(wordLength):
         if wordChoice[x] in guessedLetters:
@@ -54,8 +54,11 @@ while guessedCorrect == False:
     if len(guess) > 1:
         if guess==wordChoice:
             print('Correct! You win.')
-            guessedCorrect = True
+            gameIsDone = True
         else:
             print('Wrong guess!')
             print()
             guessAmount = guessAmount + 1
+    if guessAmount == 8:
+        print('You are out of guesses! The word was ' + wordChoice)
+        gameIsDone = True
