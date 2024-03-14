@@ -17,7 +17,7 @@ def write_to_csv(output_list):
         writer_object.writerow(output_list)
         f_object.close()  
 
-for word in range(169384,len(wikt.iloc[:,0])):
+for word in range(1,len(wikt.iloc[:,0])):
     current_word = wikt.iloc[word,0]
     found = molex.iloc[:,1][molex.iloc[:,0]==current_word]
     if len(found) > 0:
